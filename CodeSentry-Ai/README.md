@@ -15,13 +15,6 @@ This application connects to GitHub repositories and automatically reviews code 
 
 The AI reviewer posts comments directly on the pull request with specific line-by-line feedback, severity levels, and suggested improvements.
 
-## Demo
-
-See the AI reviewer in action on these example pull requests:
-- [Demo PR #1](https://github.com/BhatiaUday/mistral_project/pull/1)
-- [Demo PR #2](https://github.com/BhatiaUday/mistral_project/pull/2)
-- [Demo PR #3](https://github.com/BhatiaUday/mistral_project/pull/3)
-
 ## Requirements
 
 - Python 3.9 or higher
@@ -32,29 +25,34 @@ See the AI reviewer in action on these example pull requests:
 ## Setup
 
 1. Clone the repository:
+
 ```bash
-git clone https://github.com/BhatiaUday/mistral_project.git
-cd mistral_project
+git clone https://github.com/raaghs01/CodeSentry-AI.git
+cd CodeSentry-Ai
 ```
 
 2. Create and activate virtual environment:
+
 ```bash
 python3 -m venv mistral_project_venv
 source mistral_project_venv/bin/activate
 ```
 
 3. Install dependencies:
+
 ```bash
 pip install -r requirements.txt
 ```
 
 4. Configure environment variables:
+
 ```bash
 cp .env.example .env
 # Edit .env with your API keys (see Configuration section)
 ```
 
 5. Run the application:
+
 ```bash
 python -m uvicorn app.main:app --reload
 ```
@@ -68,7 +66,7 @@ Create a `.env` file with the following variables:
 GITHUB_TOKEN=your_github_personal_access_token
 GITHUB_WEBHOOK_SECRET=your_webhook_secret
 
-# Mistral AI Configuration  
+# Mistral AI Configuration
 MISTRAL_API_KEY=your_mistral_api_key
 MISTRAL_MODEL=mistral-small
 
@@ -81,11 +79,13 @@ LOG_LEVEL=INFO
 ### Getting API Keys
 
 **GitHub Personal Access Token:**
+
 1. Go to GitHub Settings > Developer settings > Personal access tokens
 2. Generate new token with `repo` permissions
 3. Copy the token to GITHUB_TOKEN in .env
 
 **Mistral AI API Key:**
+
 1. Sign up at console.mistral.ai
 2. Navigate to API Keys section
 3. Generate new API key
@@ -93,6 +93,7 @@ LOG_LEVEL=INFO
 
 **Webhook Secret:**
 Generate a secure random string for webhook verification:
+
 ```bash
 python -c "import secrets; print(secrets.token_hex(32))"
 ```
@@ -131,11 +132,13 @@ See `deployment/azure/AZURE_DEPLOYMENT.md` for detailed deployment instructions.
 ## Local Development
 
 Run with Docker:
+
 ```bash
 docker-compose up --build
 ```
 
 Run for development:
+
 ```bash
 python -m uvicorn app.main:app --reload --port 8000
 ```
@@ -157,6 +160,7 @@ GitHub PR → Webhook → FastAPI App → Mistral AI → Code Analysis → GitHu
 ```
 
 The application is built with:
+
 - FastAPI for the web framework and API endpoints
 - PyGithub for GitHub API integration
 - Mistral AI SDK for code analysis
