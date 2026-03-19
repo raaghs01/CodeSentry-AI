@@ -27,7 +27,7 @@ The AI reviewer posts comments directly on the pull request with specific line-b
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/raaghs01/CodeSentry-AI.git
+git clone https://github.com/raaghs01/CodeSentry-AI
 cd CodeSentry-Ai
 ```
 
